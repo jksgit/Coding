@@ -2,15 +2,17 @@
 require 'ipaddress'
 #Function to work on IP/CIDR and find the match
 def scan(str)
+  result = Array.new
   begin
    ip = IPAddress("#{str}")
       if ip.ipv4?
           ip.each do |host|
-            puts File.readlines("error.txt").grep /\b#{host}\b/
+            result = File.readlines("error.txt").grep /\b#{host}\b/
             end
+            if result.empty? then puts "No Match Found" else puts result end
           end
   rescue
-    print "Invalid IP/CIDR"
+    puts "Invalid IP/CIDR"
     exit 1
   end
 end
