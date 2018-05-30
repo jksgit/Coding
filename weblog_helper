@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'ipaddress'
-
+#Function to work on IP/CIDR and find the match
 def scan(str)
   begin
    ip = IPAddress("#{str}")
@@ -14,9 +14,7 @@ def scan(str)
     exit 1
   end
 end
-
-file="location of the file"
-
+#Validating User input
 unless ARGV.count == 2 && ARGV[0] == "--ip"
   puts "Usage:  #{__FILE__} --ip <IP/CIDR> "
   exit 1
