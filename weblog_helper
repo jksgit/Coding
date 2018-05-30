@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'ipaddress'
+
+def scan(str)
+  begin
+   ip = IPAddress("#{str}")
+      if ip.ipv4?
+          ip.each do |host|
+            puts File.readlines("error.txt").grep /\b#{host}\b/
+            end
+          end
+  rescue
+    print "Invalid IP/CIDR"
+    exit 1
+  end
+end
+
+file="location of the file"
+
+unless ARGV.count == 2 && ARGV[0] == "--ip"
+  puts "Usage:  #{__FILE__} --ip <IP/CIDR> "
+  exit 1
+end
+
+scan(ARGV[1])
