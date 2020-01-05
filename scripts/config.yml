@@ -1,0 +1,50 @@
+---
+
+# Assertions must pass before any resources are deleted
+assertions:
+  account_id: "572549618152"
+
+# Resources that should not be deleted
+preserved_resources:
+  cloudformation:
+    - StackSet-Infosec-*
+    - athenahealth-resolver-rule-association
+    - athenahealth-transit-gateway-attachment
+    - AMICopy
+    - CustomIamDeployRole
+    - DeveloperBoundaryPolicyStack
+    - Infosec-*
+    - JumpServer
+    - KMSRoleForServiceCatalog
+    - LatestAmiLambdaFunction
+    - RegionBase
+    - Security
+    - StandardSecurityStack
+    - StandardVpc
+    - ThousandEyesAsg
+    - ThousandEyesEast
+    - VPC-Info
+    - custodian-role
+    - custom-nacl-rules
+    - tenableConnector
+    - vpc-subnets-lambda-function
+    - iaas-cluster
+    - IaaS-Dashboard-Read-Only
+    - AWS-MetaData-API-Cross-Account-Role
+    - AWSCloudFormationStackSetExecutionRole
+    - SSM*
+    - apigateway-*
+    - statuspage-ecs-cluster
+
+  ami:
+    - ami-1234
+  snapshots:
+    - snap-1234
+  s3_buckets:
+    - ramakrishna-grkh
+    - redlock-athn-cloudzone-nonprod
+    - elasticbeanstalk-us-east-1-572549618152
+    - re-testmultiregion
+    - jenkinsx
+    - elasticbeanstalk-us-west-2-572549618152
+    - testmultiregion
